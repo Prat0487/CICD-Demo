@@ -11,7 +11,7 @@ COPY app/requirements.txt /app/requirements.txt
 
 RUN --mount=type=cache,target=/root/.cache/pip     pip install -r /app/requirements.txt
 
-COPY app /app
+COPY . /app
 
 # Drop privileges
 USER appuser
