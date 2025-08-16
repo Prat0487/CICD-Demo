@@ -41,6 +41,8 @@ jobs:
     - name: Update kubeconfig
       run: |
         aws eks update-kubeconfig --region $AWS_REGION --name $CLUSTER_NAME
+      
+    
 
     - name: Check kubectl context
       run: |
