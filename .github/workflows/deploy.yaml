@@ -42,6 +42,11 @@ jobs:
       run: |
         aws eks update-kubeconfig --region $AWS_REGION --name $CLUSTER_NAME
 
+    - name: Check kubectl context
+      run: |
+        kubectl config get-contexts
+        kubectl get nodes
+
     - name: Set image tag in Helm values
       run: |
         sed -i "s|tag:.*|tag: \"${GITHUB_SHA}\"|g" ./helm/python-demo/values.yaml
