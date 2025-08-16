@@ -33,6 +33,9 @@ jobs:
     - name: Verify ECR login
       run: aws ecr describe-repositories --repository-names $ECR_REPOSITORY
 
+    - name: Who am I?
+      run: aws sts get-caller-identity
+
     - name: Build, tag, and push Docker image to ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
